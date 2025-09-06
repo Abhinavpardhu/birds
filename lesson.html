@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson Session - Nabha Digital Learning</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+    }
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .nav-link.active {
+      background-color: #667eea !important;
+      color: #fff !important;
+      border-radius: 20px;
+    }
+    .lesson-content {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .quiz-box {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(102,126,234,0.08);
+    }
+    .quiz-options label {
+      display: block;
+      padding: 8px 12px;
+      margin: 5px 0;
+      border-radius: 8px;
+      background: #f9f9f9;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .quiz-options label:hover {
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <div class="logo-icon me-2">ਨ</div>
+        <span class="fw-bold text-dark">Nabha Digital Learning</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a href="nabha_learning_platform.html" class="nav-link">Dashboard</a></li>
+          <li class="nav-item"><a href="lesson.html" class="nav-link active">Lessons</a></li>
+          <li class="nav-item"><a href="progress.html" class="nav-link">Progress</a></li>
+          <li class="nav-item"><a href="help.html" class="nav-link">Help</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="container py-4">
+    <div class="bg-white shadow rounded-3 p-3 mb-4 d-flex flex-wrap justify-content-between align-items-center">
+      <div>
+        <h4 class="fw-bold text-dark">Lesson 1: Basic Computer Skills</h4>
+        <div class="progress mt-2" style="height: 8px; width: 220px;">
+          <div class="progress-bar bg-success" role="progressbar" style="width: 40%;" id="progressFill"></div>
+        </div>
+      </div>
+      <button onclick="exitLesson()" class="btn btn-danger btn-sm mt-2 mt-md-0">Exit ✖</button>
+    </div>
+
+    <!-- Lesson Content -->
+    <div class="lesson-content">
+      <div class="mb-4">
+        <h5 class="text-primary">Introduction</h5>
+        <p>In this lesson, you will learn the basics of computer hardware and software, how to use a mouse and keyboard, and simple file management skills.</p>
+      </div>
+
+      <div class="ratio ratio-16x9 mb-4">
+        <video controls>
+          <source src="lesson1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="mb-4">
+        <h5 class="text-primary">Key Points</h5>
+        <ul>
+          <li>What is a computer?</li>
+          <li>Basic hardware: Monitor, CPU, Keyboard, Mouse.</li>
+          <li>Basic software: Operating System and Applications.</li>
+        </ul>
+      </div>
+
+      <!-- Quiz -->
+      <div class="quiz-box">
+        <p class="fw-bold">Q1. Which device is used to point and click?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q1" class="form-check-input me-2"> Keyboard</label>
+          <label><input type="radio" name="q1" class="form-check-input me-2"> Monitor</label>
+          <label><input type="radio" name="q1" class="form-check-input me-2"> Mouse</label>
+          <label><input type="radio" name="q1" class="form-check-input me-2"> CPU</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="d-flex justify-content-between gap-2 mt-4 flex-wrap">
+      <button class="btn btn-gradient btn-lg text-white px-4" style="background:linear-gradient(45deg, #f093fb, #f5576c);" onclick="prevLesson()">⟵ Previous</button>
+      <button class="btn btn-gradient btn-lg text-white px-4" style="background:linear-gradient(45deg, #667eea, #764ba2);" onclick="nextLesson()">Next ⟶</button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function exitLesson() {
+      alert("Exiting lesson... progress will be saved.");
+      window.location.href = "nabha_learning_platform.html";
+    }
+    function prevLesson() {
+      alert("Loading previous lesson...");
+    }
+    function nextLesson() {
+      alert("Loading next lesson...");
+      let progress = document.getElementById("progressFill");
+      progress.style.width = "70%";
+    }
+  </script>
+</body>
+</html>
